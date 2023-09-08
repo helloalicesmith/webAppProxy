@@ -18,16 +18,20 @@ const App = () => {
   const themeWithLocale = React.useMemo(() => createTheme({
     palette: {
       mode: 'dark',
+      primary: {
+        main: '#579496',
+      },
     },
     typography: {
-      fontSize: 12
+      fontSize: 12,
     }
   }, locales[locale]), [locale])
 
   return (
     <ThemeProvider theme={themeWithLocale}>
-      <CssBaseline />
-      <TabsWidget />
+        <div className='slider-thumb' />
+        <CssBaseline />
+        <TabsWidget />
     </ThemeProvider>
   )
 }

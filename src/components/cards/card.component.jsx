@@ -9,9 +9,11 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
     height: 120,
     border: '1px solid #d7d7d7',
+    borderRadius: 12,
     padding: '8px',
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    boxShadow: '0px 2px 20px 0px rgba(0, 0, 0, 1)'
 }));
 
 export const Card = (props) => {
@@ -21,7 +23,7 @@ export const Card = (props) => {
     return (
         <Item>
             <Box display="grid" gridTemplateColumns="3fr 1fr" gap='12px' width="100%">
-                <Box display="flex" minWidth="175px" flexDirection="column" justifyContent="space-around">
+                <Box display="flex" flexDirection="column" justifyContent="space-around">
                     <Typography sx={{ fontWeight: 'bold' }} variant='h6'>{title}</Typography>
 
                     <Box marginTop='6px' display='flex' flexDirection='column' gap='4px'>
@@ -29,7 +31,7 @@ export const Card = (props) => {
                     </Box>
                 </Box>
 
-                <Button color="warning" variant="contained">
+                <Button color="primary" variant="contained" style={{ borderRadius: 8 }}>
                     <Typography color="white">
                         {t('common.buy')}
                     </Typography>
