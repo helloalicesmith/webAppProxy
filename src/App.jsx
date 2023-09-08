@@ -3,7 +3,7 @@ import {
   Box,
   Typography,
   Tab,
-  Tabs
+  Tabs,
 } from '@mui/material'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -16,6 +16,9 @@ const darkTheme = createTheme({
   palette: {
     mode: 'dark',
   },
+  typography: {
+    fontSize: 12
+  }
 });
 
 function CustomTabPanel(props) {
