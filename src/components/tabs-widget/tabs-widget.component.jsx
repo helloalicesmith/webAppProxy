@@ -1,25 +1,14 @@
-import React from 'react';
+import React from 'react'
+
 import {
   Box,
-  Typography,
   Tab,
   Tabs,
+  Typography,
 } from '@mui/material'
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
-import './App.css'
-
-const darkTheme = createTheme({
-  palette: {
-    mode: 'dark',
-  },
-  typography: {
-    fontSize: 12
-  }
-});
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -41,43 +30,31 @@ function CustomTabPanel(props) {
   );
 }
 
-
-const TabsWidget = () => {
+export const TabsWidget = () => {
   const [value, setValue] = React.useState(0);
 
-  const handleChange = React.useCallback((_event, newValue) => {
+  const handleChange = (_event, newValue) => {
     setValue(newValue);
-  }, [])
+  };
 
   return (
-    <Box sx={{ width: '100%' }}>
+    <Box sx={{ width: '100%', textAlign: 'center' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" variant='fullWidth'>
           <Tab label="Покупка" icon={<ShoppingBagIcon />} iconPosition="start" />
           <Tab label="Заказы" icon={<BookmarkBorderIcon />} iconPosition="start"/>
           <Tab label="Профиль" icon={<AccountBoxIcon />} iconPosition="start" />
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        Lorem, ipsum dolor.
+        Item One
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        Lorem ipsum dolor sit.
+        Item Two
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
-        Lorem ipsum dolor sit amet.
+        Item Three
       </CustomTabPanel>
     </Box>
   );
 }
-
-const App = () => {
-  return (
-    <ThemeProvider theme={darkTheme}>
-      <CssBaseline />
-      <TabsWidget />
-    </ThemeProvider>
-  );
-}
-
-export default App
