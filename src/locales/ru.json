@@ -1,0 +1,14 @@
+{
+    "common.buy": "Купить",
+
+    "tabs.purchase": "Покупка",
+    "tabs.orders": "Заказы",
+    "tabs.profile": "Профиль",
+
+    "widgets.purchase.label.one": "Подходят для всех сайтов",
+    "widgets.purchase.label.two": "Используют до 3-х человек",
+    "widgets.orders.label.one": "Подходят для всех сайтов",
+    "widgets.orders.label.two": "Выдаются в одни руки",
+    "widgets.profile.label.one": "Подходят для сайтов с поддержкой IPv6",
+    "widgets.profile.label.two": "Выдаются в одни руки"
+}
