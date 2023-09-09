@@ -4,6 +4,7 @@ import * as locales from '@mui/material/locale';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { PurchaseContainer } from './containers/purchase/purchase.container'
+import { AnimationBackground } from './components/animation/animation-background.component'
 
 import { TabsWidget } from './components/tabs/tabs.component'
 import i18n from './utils/i18n.utils';
@@ -39,10 +40,10 @@ const App = () => {
 
   return (
     <ThemeProvider theme={themeWithLocale}>
-        <div className='thumb' />
         <CssBaseline />
 
         <TabsWidget WidgetComponent={PurchaseContainer} />
+        <AnimationBackground />
     </ThemeProvider>
   )
 }
