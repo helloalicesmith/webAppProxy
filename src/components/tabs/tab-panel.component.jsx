@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Typography, Box } from '@mui/material'
 
-export const CustomTabPanel = (props) => {
+export const TabPanel = (props) => {
   const { children, value, index, ...other } = props;
 
   return (
@@ -21,7 +21,7 @@ export const CustomTabPanel = (props) => {
   );
 }
 
-CustomTabPanel.propTypes = {
+TabPanel.propTypes = {
     children: PropTypes.string,
     value: PropTypes.string,
     index: PropTypes.number,

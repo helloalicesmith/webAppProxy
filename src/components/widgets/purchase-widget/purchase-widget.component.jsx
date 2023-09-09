@@ -1,4 +1,5 @@
-import { Box, Chip } from '@mui/material'
+import PropTypes from 'prop-types';
+import { Box, Chip, Typography } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 import { styled } from '@mui/material/styles';
 
@@ -12,23 +13,34 @@ const Item = styled(Chip)(() => ({
     },
 }));
 
-export const PurchaseWidgets = () => {
+export const PurchaseWidgets = (props) => {
     const { t } = useTranslation()
+    const { onBuyIPv4Shared, onBuyIPv4, onBuyIPv6 } = props
 
     return (
-        <Box display='flex' flexDirection='column' gap="20px">
-            <Card title='IPv4 Shared'>
-                <Chip size='small' label={t('widgets.purchase.label.one')} color="primary" variant="outlined" />
-                <Chip size='small' label={t('widgets.purchase.label.two')} color="success" variant="outlined" />
-            </Card>
-            <Card title='IPv4'>
-                <Chip size='small' label={t('widgets.orders.label.one')} color="primary" variant="outlined" />
-                <Chip size='small' label={t('widgets.orders.label.two')} color="primary" variant="outlined" />
-            </Card>
-            <Card title='IPv6'>
-                <Item size='small' label={t('widgets.profile.label.one')} color="success" variant="outlined" />
-                <Chip size='small' label={t('widgets.profile.label.two')} color="primary" variant="outlined" />
-            </Card>
+        <Box>
+            <Typography variant='h2'>{t('widgets.purchase.title')}</Typography>
+
+            <Box display='flex' flexDirection='column' gap="20px" marginTop={2}>
+                <Card title='IPv4 Shared' onClick={onBuyIPv4Shared}>
+                    <Item size='small' label={t('widgets.purchase.label.one')} color="secondary" variant="filled" />
+                    <Item size='small' label={t('widgets.purchase.label.two')} color="warning" variant="filled" />
+                </Card>
+                <Card title='IPv4' onClick={onBuyIPv4}>
+                    <Item size='small' label={t('widgets.orders.label.one')} color="secondary" variant="filled" />
+                    <Item size='small' label={t('widgets.orders.label.two')} color="secondary" variant="filled" />
+                </Card>
+                <Card title='IPv6' onClick={onBuyIPv6}>
+                    <Item size='small' label={t('widgets.profile.label.one')} color="warning" variant="filled" />
+                    <Item size='small' label={t('widgets.profile.label.two')} color="secondary" variant="filled" />
+                </Card>
+            </Box>
         </Box>
     )
+}
+
+PurchaseWidgets.propTypes = {
+    onBuyIPv4Shared: PropTypes.func,
+    onBuyIPv4: PropTypes.func,
+    onBuyIPv6: PropTypes.func,
 }

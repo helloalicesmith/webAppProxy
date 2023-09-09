@@ -3,21 +3,9 @@ import { Box, Paper, Typography, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { useTranslation } from 'react-i18next';
 
-const Item = styled(Paper)(({ theme }) => ({
-    ...theme.typography.body2,
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    height: 120,
-    border: '1px solid #d7d7d7',
-    borderRadius: 12,
-    padding: '8px',
-    display: 'flex',
-    justifyContent: 'center',
-    boxShadow: '0px 2px 20px 0px rgba(0, 0, 0, 1)'
-}));
-
 export const Card = (props) => {
     const { title, children } = props
+    const { onClick } = props
     const { t } = useTranslation()
 
     return (
@@ -31,7 +19,7 @@ export const Card = (props) => {
                     </Box>
                 </Box>
 
-                <Button color="primary" variant="contained" style={{ borderRadius: 8 }}>
+                <Button color="primary" variant="contained" style={{ borderRadius: 8 }} onClick={onClick}>
                     <Typography color="white">
                         {t('common.buy')}
                     </Typography>
@@ -41,7 +29,21 @@ export const Card = (props) => {
     )
 }
 
+const Item = styled(Paper)(({ theme }) => ({
+    ...theme.typography.body2,
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+    height: 120,
+    border: '1px solid #d7d7d7',
+    borderRadius: 12,
+    padding: '8px',
+    display: 'flex',
+    justifyContent: 'center',
+    boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px'
+}));
+
 Card.propTypes = {
     title: PropTypes.string,
     children: PropTypes.element,
+    onClick: PropTypes.func,
 };
