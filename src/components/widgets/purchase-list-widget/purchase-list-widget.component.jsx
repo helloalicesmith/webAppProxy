@@ -19,7 +19,7 @@ export function PurchaseWidgets(props) {
 
   return (
     <Box>
-      <Typography variant="h2">{t('widgets.purchase.title')}</Typography>
+      <Typography variant="h2" bol>{t('widgets.purchase.title')}</Typography>
 
       <Box display="flex" flexDirection="column" gap="20px" marginTop={2}>
         <Card title="IPv4 Shared" onClick={onBuyIPv4Shared}>
